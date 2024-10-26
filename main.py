@@ -20,9 +20,7 @@ async def Get_User_Number(user_id: Annotated[int, Path(ge=1, le=100, description
 
 
 @app.get("/user/{username}/{age}")
-async def Get_User_info(username: Annotated[str, Path(min_length=5, max_length=20, description="Enter username",
-                                                      example="UrbanUser")],
-                        age: int = Path(ge=18, le=120, description="Enter age",
-                                        example="24")) -> dict:
+async def Get_User_info(username: Annotated[str, Path(min_length=5, max_length=20, description="Enter username", example="UrbanUser")],
+                        age: int = Path(ge=18, le=120, description="Enter age", example="24")) -> dict:
     return {'massage': f'Информация о пользователе. Имя: {username}, Возраст: {age}'}
 
